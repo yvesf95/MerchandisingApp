@@ -1,11 +1,76 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-    <meta charset="UTF-8"/>
-    <title>Home</title>
-</head>
-<body>
-    <h1 th:text="'Hi there ' + ${name}">Hello World</h1>
+<html>
 
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css" media="screen,projection">
+    <link type="text/css" rel="stylesheet" href="css/styles.css" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+</head>
+
+<body class="deep-purple lighten-5">
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col m7 s12">
+                    <div class="left">
+                        <p style="text-align: center"><strong>University of Santo Tomas</strong></p>
+                        <p style="text-align: center"><strong>Institute of Information and Computing Sciences</strong></p>
+                        <div class="card-panel hoverable" style="text-align: center;"> Hoverable Card Panel</div>
+                        <p style="text-align: justify">
+                            Lorizzle ipsum crazy its fo rizzle get down get down, consectetizzle adipiscing elit. Crackalackin sapizzle velizzle, crunk volutpat, suscipit quis, mofo vizzle, arcu. For sure eget tellivizzle. Tellivizzle erizzle. Things izzle dolizzle dapibus check
+                            out this tempizzle mah nizzle. Mauris doggy nibh i'm in the shizzle turpizzle. Pizzle in check it out. Fizzle sizzle rhoncizzle nisi. In hac habitasse fo shizzle my nizzle dictumst. Rizzle dapibizzle. Curabitizzle tellus phat,
+                            pretizzle eu, mattizzle izzle, you son of a bizzle vitae, nunc. Mah nizzle suscipizzle. Integizzle semper velit shit purus. Black dang urna, luctizzle et, tristique owned, sollicitudizzle izzle, nulla. pharetra, nisi bizzle
+                            eget dang. Shut the shizzle up black, et aliquizzle aliquizzle, tellus brizzle stuff orci, gangsta sagittis nulla mi izzle shizzlin dizzle. Suspendisse aliquizzle mah nizzle hizzle. In pulvinar aliquet bling bling. Praesent
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col m5 s12">
+                    <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;margin-top:15px;">
+                        <form class="col m12" method="post">
+                            <div class='row'>
+                                <div class='col s12'>
+                                </div>
+                            </div>
+
+                            <div class='row'>
+                                <div class='input-field col s12'>
+                                    <input class='validate' type='text' name='username' id='username' />
+                                    <label for='username'>Username</label>
+                                </div>
+                            </div>
+
+                            <div class='row'>
+                                <div class='input-field col s12'>
+                                    <input class='validate' type='password' name='password' id='password' />
+                                    <label for='password'>Password</label>
+                                </div>
+                                <label style='float: right;'>
+                                <a class='pink-text' href='#!'><b>Forgot Password?</b></a>
+                            </label>
+                            </div>
+
+                            <br />
+                            <center>
+                                <div class='row'>
+                                    <button type='submit' name='btn_login' class='col s12 btn btn-medium waves-effect red darken-3'>Login</button>
+                                </div>
+                            </center>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Import jQuery before materialize.js-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,26 @@
+/*Login Page*/
+
+html {
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+}
+
+.wrapper {
+    margin-top: 7%;
+}
+
+.left {
+    padding: 0px 2% 0px 0px;
+}
+
+.input-field input[type=date]:focus+label,
+.input-field input[type=text]:focus+label,
+.input-field input[type=password]:focus+label {
+    color: #e91e63;
+}
+
+.input-field input[type=date]:focus,
+.input-field input[type=text]:focus,
+.input-field input[type=password]:focus {
+    border-bottom: 2px solid #e91e63;
+    box-shadow: none;
+}
