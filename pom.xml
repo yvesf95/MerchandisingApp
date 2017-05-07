@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>MerchandisingApp</name>
-	<description>Merchandising webapp for the Engineering Student Council</description>
+	<description>Merchandising webapp for IICS</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
