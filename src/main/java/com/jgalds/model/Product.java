@@ -25,10 +25,19 @@ public class Product {
     @NonNull
     private String productName;
     @NonNull
-    private String productType;
-    @NonNull
     private String productDesc;
     @NonNull
-    private double productPrice;
+    private String category;
+    @NonNull
+    private String color;
+    @NonNull
+    private double size;
+    @NonNull
+    private double price;
+    @NonNull
+    private int stock;
+    @NonNull
+    private String picturePath;
+
 
 }

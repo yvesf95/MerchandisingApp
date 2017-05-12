@@ -25,14 +25,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "/login", "/products").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin().loginPage("/login")
-                .defaultSuccessUrl("/")
+                .antMatchers("/").permitAll()
+                .antMatchers("/admin/**").access("hasRole('ADMIN')")
+                .antMatchers("/members/**").access("hasRole('MEMBER') or hasRole('ADMIN')")
+                .antMatchers("/student/**").access("hasRole('STUDENT') or hasRole('MEMBER') or hasRole('ADMIN')")
+                .and().formLogin().loginPage("/login")
                 .usernameParameter("username").passwordParameter("password")
-                .and().csrf()
-                .and().logout()
-                .logoutSuccessUrl("/");
+                .and().csrf().disable()
+                .logout()
+                .and().exceptionHandling().accessDeniedPage("/error403");
     }
 }

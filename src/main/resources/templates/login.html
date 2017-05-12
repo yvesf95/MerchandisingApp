@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <!--Import materialize.css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css" media="screen,projection">
-    <link type="text/css" rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}" />
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
 </head>
 
 <body class="deep-purple lighten-5">
@@ -22,10 +22,19 @@
                     <p style="text-align: center"><strong>Institute of Information and Computing Sciences</strong></p>
                     <div class="card-panel hoverable" style="text-align: center;"> Hoverable Card Panel</div>
                     <p style="text-align: justify">
-                        Lorizzle ipsum crazy its fo rizzle get down get down, consectetizzle adipiscing elit. Crackalackin sapizzle velizzle, crunk volutpat, suscipit quis, mofo vizzle, arcu. For sure eget tellivizzle. Tellivizzle erizzle. Things izzle dolizzle dapibus check
-                        out this tempizzle mah nizzle. Mauris doggy nibh i'm in the shizzle turpizzle. Pizzle in check it out. Fizzle sizzle rhoncizzle nisi. In hac habitasse fo shizzle my nizzle dictumst. Rizzle dapibizzle. Curabitizzle tellus phat,
-                        pretizzle eu, mattizzle izzle, you son of a bizzle vitae, nunc. Mah nizzle suscipizzle. Integizzle semper velit shit purus. Black dang urna, luctizzle et, tristique owned, sollicitudizzle izzle, nulla. pharetra, nisi bizzle
-                        eget dang. Shut the shizzle up black, et aliquizzle aliquizzle, tellus brizzle stuff orci, gangsta sagittis nulla mi izzle shizzlin dizzle. Suspendisse aliquizzle mah nizzle hizzle. In pulvinar aliquet bling bling. Praesent
+                        Lorizzle ipsum crazy its fo rizzle get down get down, consectetizzle adipiscing elit.
+                        Crackalackin sapizzle velizzle, crunk volutpat, suscipit quis, mofo vizzle, arcu.
+                        For sure eget tellivizzle. Tellivizzle erizzle. Things izzle dolizzle dapibus check
+                        out this tempizzle mah nizzle. Mauris doggy nibh i'm in the shizzle turpizzle.
+                        Pizzle in check it out.
+                        Fizzle sizzle rhoncizzle nisi. In hac habitasse fo shizzle my nizzle dictumst.
+                        Rizzle dapibizzle. Curabitizzle tellus phat,
+                        pretizzle eu, mattizzle izzle, you son of a bizzle vitae, nunc.
+                        Mah nizzle suscipizzle. Integizzle semper velit shit purus.
+                        Black dang urna, luctizzle et, tristique owned, sollicitudizzle izzle, nulla. pharetra,
+                        nisi bizzle eget dang. Shut the shizzle up black, et aliquizzle aliquizzle,
+                        tellus brizzle stuff orci, gangsta sagittis nulla mi izzle shizzlin dizzle.
+                        Suspendisse aliquizzle mah nizzle hizzle. In pulvinar aliquet bling bling. Praesent
 
                     </p>
                 </div>
@@ -33,9 +42,19 @@
 
             <div class="col m5 s12">
                 <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;margin-top:15px;">
-                    <form class="col m12" method="post">
-                        <div class='row'>
+                    <form action="/login" class="col m12" method="post">
+                        <div class='row' th:if="${param.error}">
                             <div class='col s12'>
+                                <div class='card-panel red darken-2'>
+                                    <span class="white-text">Invalid Username and Password</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='row' th:if="${param.logout}">
+                            <div class='col s12'>
+                                <div class='card-panel green darken-2'>
+                                    <span class="white-text">Logged out successfully.</span>
+                                </div>
                             </div>
                         </div>
 
@@ -59,7 +78,8 @@
                         <br />
                         <center>
                             <div class='row'>
-                                <button type='submit' name='btn_login' class='col s12 btn btn-medium waves-effect red darken-3'>Login</button>
+                                <button type='submit' name='btn_login'
+                                        class='col s12 btn btn-medium waves-effect red darken-3'>Login</button>
                             </div>
                         </center>
                     </form>

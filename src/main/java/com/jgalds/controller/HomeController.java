@@ -1,5 +1,7 @@
 package com.jgalds.controller;
 
+import com.jgalds.model.Account;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +16,7 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model){
-//        model.addAttribute("name", "Yves");
+            model.addAttribute("name", "asdfghjkl");
         return "index";
     }
 
@@ -22,4 +24,20 @@ public class HomeController {
     public String login(){
         return "login";
     }
+
+    @RequestMapping(value = "/products", method = RequestMethod.GET)
+    public String getProducts(){
+        return "products";
+    }
+
+    @RequestMapping(value = "/error403", method = RequestMethod.GET)
+    public String errorPage(){
+        return "error403";
+    }
+
+    @RequestMapping(value = "/admin")
+    public String admin(){
+        return "admin";
+    }
+
 }

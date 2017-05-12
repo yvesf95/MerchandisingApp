@@ -28,6 +28,6 @@ public class AccountUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Account account = accountRepository.findByUsername(username);
         return new User(account.getUsername(), account.getPassword(),
-                AuthorityUtils.createAuthorityList(account.getRoles()));
+                AuthorityUtils.createAuthorityList(account.getRole()));
     }
 }

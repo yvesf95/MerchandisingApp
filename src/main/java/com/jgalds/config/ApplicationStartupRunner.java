@@ -20,19 +20,26 @@ public class ApplicationStartupRunner implements CommandLineRunner {
     private final AccountRepository accountRepository;
 
     @Autowired
-    public ApplicationStartupRunner(ProductRepository productRepository, AccountRepository accountRepository) {
+    public ApplicationStartupRunner(ProductRepository productRepository,
+                                    AccountRepository accountRepository) {
         this.productRepository = productRepository;
         this.accountRepository = accountRepository;
     }
 
     @Override
     public void run(String... strings) throws Exception {
-        productRepository.save(new Product("Hello", "shirt", "Hi world", 1000.00));
-        productRepository.save(new Product("Hello", "shirt", "Hi world", 1000.00));
-        productRepository.save(new Product("Hello", "shirt", "Hi world", 1000.00));
+        productRepository.save(new Product("Hello", "Hi world",
+                "shirt", "blue", 10, 1000.00, 12, "/images"));
+        productRepository.save(new Product("Hello", "Hi world",
+                "shirt", "blue", 10, 1000.00, 12, "/images"));
+        productRepository.save(new Product("Hello", "Hi world",
+                "shirt", "blue", 10, 1000.00, 12, "/images"));
 
-        accountRepository.save(new Account("admin", "admin", "spring", "helloworld@gmail.com", "ACTIVE", "ROLE_ADMIN"));
-        accountRepository.save(new Account("member", "member", "youtube", "helloworld@gmail.com", "ACTIVE", "ROLE_MEMBER"));
-        accountRepository.save(new Account("student", "student", "java", "helloworld@gmail.com", "ACTIVE", "ROLE_STUDENT"));
+        accountRepository.save(new Account("admin", "admin", "spring",
+                "helloworld@gmail.com", true, "ROLE_ADMIN"));
+        accountRepository.save(new Account("member", "member", "youtube",
+                "helloworld@gmail.com", true, "ROLE_MEMBER"));
+        accountRepository.save(new Account("student", "student", "java",
+                "helloworld@gmail.com", true, "ROLE_STUDENT"));
     }
 }
