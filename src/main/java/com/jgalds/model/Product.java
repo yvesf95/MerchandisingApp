@@ -5,39 +5,50 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by Admin on 5/6/2017.
  */
 
 @Data
-@NoArgsConstructor
-@RequiredArgsConstructor
 @Entity
 public class Product {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @NonNull
+
     private String productName;
-    @NonNull
+
     private String productDesc;
-    @NonNull
-    private String category;
-    @NonNull
+
+    @ManyToOne
+    @JoinColumn(name = "CATEGORY_ID")
+    private Category category;
+
     private String color;
-    @NonNull
+
     private double size;
-    @NonNull
+
     private double price;
-    @NonNull
+
     private int stock;
-    @NonNull
-    private String picturePath;
 
+    @OneToMany(mappedBy = "product")
+    private List<Picture> pictures = new ArrayList<>();
 
+    public Product(String productName, String productDesc,
+                   Category category, String color,
+                   double size, double price, int stock) {
+        this.productName = productName;
+        this.productDesc = productDesc;
+        this.category = category;
+        this.color = color;
+        this.size = size;
+        this.price = price;
+        this.stock = stock;
+    }
 }

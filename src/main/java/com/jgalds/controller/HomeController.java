@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(Model model){
-            model.addAttribute("name", "asdfghjkl");
+    public String index(){
         return "index";
     }
 
@@ -33,11 +32,6 @@ public class HomeController {
     @RequestMapping(value = "/error403", method = RequestMethod.GET)
     public String errorPage(){
         return "error403";
-    }
-
-    @RequestMapping(value = "/admin")
-    public String admin(){
-        return "admin";
     }
 
 }

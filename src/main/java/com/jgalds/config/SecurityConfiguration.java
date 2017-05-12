@@ -16,6 +16,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     
     @Autowired
     private AccountUserDetailsService userDetailsService;
+
+    @Autowired
+    private RoleBasedSuccessHandler roleBasedSuccessHandler;
     
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -26,13 +29,28 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/admin/**").access("hasRole('ADMIN')")
-                .antMatchers("/members/**").access("hasRole('MEMBER') or hasRole('ADMIN')")
-                .antMatchers("/student/**").access("hasRole('STUDENT') or hasRole('MEMBER') or hasRole('ADMIN')")
-                .and().formLogin().loginPage("/login")
-                .usernameParameter("username").passwordParameter("password")
+
+                .antMatchers("/admin/**")
+                    .access("hasRole('ADMIN')")
+
+                .antMatchers("/members/**")
+                    .access("hasRole('MEMBER') or hasRole('ADMIN')")
+
+                .antMatchers("/student/**")
+                    .access("hasRole('STUDENT') or hasRole('MEMBER') or hasRole('ADMIN')")
+
+                .and().formLogin()
+                    .loginPage("/login")
+                    .usernameParameter("username")
+                    .passwordParameter("password")
+                    .successHandler(roleBasedSuccessHandler)
+
                 .and().csrf().disable()
+
                 .logout()
-                .and().exceptionHandling().accessDeniedPage("/error403");
+
+                .and()
+                    .exceptionHandling()
+                    .accessDeniedPage("/error403");
     }
 }

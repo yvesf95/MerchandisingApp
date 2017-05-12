@@ -35,6 +35,7 @@ public class Account {
     @Column(name = "EMAIL", nullable = false)
     private String email;
 
+    @Column(name = "ACTIVE")
     private boolean active;
 
     private String role;
