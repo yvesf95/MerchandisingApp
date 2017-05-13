@@ -1,8 +1,12 @@
-/*Login Page*/
+/*Global CSS Pota*/
 
-html {
-    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+.card-panel {
+    border-radius: 0;
+    border-top: 2px inset grey;
 }
+
+
+/*Login Page*/
 
 .wrapper {
     margin-top: 7%;
@@ -12,15 +16,24 @@ html {
     padding: 0px 2% 0px 0px;
 }
 
-.input-field input[type=date]:focus+label,
-.input-field input[type=text]:focus+label,
-.input-field input[type=password]:focus+label {
+
+/*Index Page*/
+
+.login-form .input-field input[type=date]:focus+label,
+.login-form .input-field input[type=text]:focus+label,
+.login-form .input-field input[type=password]:focus+label {
     color: #e91e63;
 }
 
-.input-field input[type=date]:focus,
-.input-field input[type=text]:focus,
-.input-field input[type=password]:focus {
+.login-form .input-field input[type=date]:focus,
+.login-form .input-field input[type=text]:focus,
+.login-form .input-field input[type=password]:focus {
     border-bottom: 2px solid #e91e63;
     box-shadow: none;
+}
+
+@media screen and (min-width: 993px) {
+    nav .brand-logo {
+        padding: 0 0 0 30px;
+    }
 }
