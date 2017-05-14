@@ -34,6 +34,10 @@ $(document).ready(function() {
         var x = $('.order div:nth-child(' + index + ')').text();
         $("#set-order").text(x);
     });
+
+    $('.message a').click(function() {
+        $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+    });
 });
 
 

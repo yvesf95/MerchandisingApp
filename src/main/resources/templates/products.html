@@ -1,43 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>Products</title>
 </head>
 <body>
-<div th:if="${#lists.isEmpty(products)}">
-    <h1>NO DATA FOUND</h1>
-</div>
-<div th:if="${not #lists.isEmpty(products)}">
+<div>
     <h1>Products</h1>
-    <table border="">
-        <thead>
-        <th>id</th>
-        <th>productName</th>
-        <th>productDesc</th>
-        <th>category</th>
-        <th>color</th>
-        <th>size</th>
-        <th>stock</th>
-        <th>price</th>
-        <!--<th>pictures</th>-->
-        </thead>
-        <tbody>
-        <!--/*@thymesVar id="products" type="com.jgalds.controller.HomeController"*/-->
-        <tr th:each="p : ${products}">
-            <td th:text="${p.id}"></td>
-            <td th:text="${p.productName}"></td>
-            <td th:text="${p.productDesc}"></td>
-            <td th:text="${p.category.categoryName}"></td>
-            <td th:text="${p.color}"></td>
-            <td th:text="${p.size}"></td>
-            <td th:text="${p.stock}"></td>
-            <td th:text="${p.price}"></td>
-            <!--<td th:text="${p.pictures.picPath}"></td>-->
-        </tr>
-        </tbody>
-    </table>
-
 </div>
 </body>
 </html>

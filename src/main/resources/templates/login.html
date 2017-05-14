@@ -5,82 +5,94 @@
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <!--Import materialize.css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <link type="text/css" rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}" />
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
 </head>
 
-<body class="deep-purple lighten-5">
-    <div class="wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col m7 s12">
-                    <div class="left">
-                        <p style="text-align: center"><strong>University of Santo Tomas</strong></p>
-                        <p style="text-align: center"><strong>Institute of Information and Computing Sciences</strong></p>
-                        <div class="card-panel hoverable" style="text-align: center;"> Hoverable Card Panel</div>
-                        <p style="text-align: justify">
-                            Lorizzle ipsum crazy its fo rizzle get down get down, consectetizzle adipiscing elit. Crackalackin sapizzle velizzle, crunk volutpat, suscipit quis, mofo vizzle, arcu. For sure eget tellivizzle. Tellivizzle erizzle. Things izzle dolizzle dapibus check
-                            out this tempizzle mah nizzle. Mauris doggy nibh i'm in the shizzle turpizzle. Pizzle in check it out. Fizzle sizzle rhoncizzle nisi. In hac habitasse fo shizzle my nizzle dictumst. Rizzle dapibizzle. Curabitizzle tellus phat,
-                            pretizzle eu, mattizzle izzle, you son of a bizzle vitae, nunc. Mah nizzle suscipizzle. Integizzle semper velit shit purus. Black dang urna, luctizzle et, tristique owned, sollicitudizzle izzle, nulla. pharetra, nisi bizzle
-                            eget dang. Shut the shizzle up black, et aliquizzle aliquizzle, tellus brizzle stuff orci, gangsta sagittis nulla mi izzle shizzlin dizzle. Suspendisse aliquizzle mah nizzle hizzle. In pulvinar aliquet bling bling. Praesent
+<body>
 
-                        </p>
-                    </div>
-                </div>
+    <nav>
+        <div class="nav-wrapper red darken-1">
+            <a href="#!" class="brand-logo">Logo</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">Javascript</a></li>
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+                <ul id="dropdown1" class="dropdown-content">
+                    <li><a href="#!"><i class="material-icons">view_module</i>Bag </a></li>
+                    <li><a href="#!"><i class="material-icons">cloud</i>Logout </a></li>
+                </ul>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">Javascript</a></li>
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+                <ul id="dropdown2" class="dropdown-content">
+                    <li><a href="#!"><i class="material-icons">view_module</i>Bag </a></li>
+                    <li><a href="#!"><i class="material-icons">cloud</i>Logout </a></li>
+                </ul>
+            </ul>
+        </div>
+    </nav>
 
-                <div class="col m5 s12">
-                    <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;margin-top:15px;">
-                        <form action="/login" class="col m12 login-form" method="post">
-                            <div class='row' th:if="${param.error}">
-                                <div class='col s12'>
-                                    <div class='card-panel red darken-2'>
-                                        <span class="white-text">Invalid Username and Password</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class='row' th:if="${param.logout}">
-                                <div class='col s12'>
-                                    <div class='card-panel green darken-1'>
-                                        <span class="white-text">Logged out successfully.</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class='row'>
-                                <div class='input-field col s12'>
-                                    <input class='validate' type='text' name='username' id='username' />
-                                    <label for='username'>Username</label>
-                                </div>
-                            </div>
-
-                            <div class='row'>
-                                <div class='input-field col s12'>
-                                    <input class='validate' type='password' name='password' id='password' />
-                                    <label for='password'>Password</label>
-                                </div>
-                                <label style='float: right;'>
-                                <a class='pink-text' href='#!'><b>Forgot Password?</b></a>
-                            </label>
-                            </div>
-
-                            <br />
-                            <center>
-                                <div class='row'>
-                                    <button type='submit' name='btn_login' class='col s12 btn btn-medium waves-effect red darken-3'>Login</button>
-                                </div>
-                            </center>
-                        </form>
-                    </div>
-                </div>
+    <div class="wrapper grey lighten-4">
+        <div class="login-page">
+            <div class="login-form">
+                <!--<span>Dito mo lagay ung error message</span>-->
+                <form class="register-form">
+                    <input type="text" placeholder="name" />
+                    <input type="password" placeholder="password" />
+                    <input type="text" placeholder="email address" />
+                    <button>create</button>
+                    <p class="message">Already registered? <a href="#">Sign In</a></p>
+                </form>
+                <form class="submit-form">
+                    <input type="text" placeholder="username" />
+                    <input type="password" placeholder="password" />
+                    <button>login</button>
+                    <p class="message">Not registered? <a href="#">Create an account</a></p>
+                </form>
             </div>
         </div>
     </div>
+
+    <footer class="page-footer grey lighten-1">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2017 JGalds Productions
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+
+
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script src="../static/js/scripts.js"></script>
 </body>
 
 </html>

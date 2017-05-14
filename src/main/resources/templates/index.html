@@ -6,7 +6,7 @@
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <!--Import materialize.css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <link type="text/css" rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}" />
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,8 +14,6 @@
 </head>
 
 <body>
-
-
     <nav>
         <div class="nav-wrapper red darken-1">
             <a href="#!" class="brand-logo">Logo</a>
@@ -23,16 +21,8 @@
             <ul class="right hide-on-med-and-down">
                 <li><a href="sass.html">Sass</a></li>
                 <li><a href="badges.html">Components</a></li>
-                <li><a href="/products">Products</a></li>
-                <li th:if="${username == null}">
-                    <a href="/login">Login</a>
-                </li>
-                <li th:if="${username != null}">
-                    <a class="dropdown-button" href="#!" data-activates="dropdown1">
-                        <span th:text="${username}">Dropdown</span>
-                        <i class="material-icons right">arrow_drop_down</i>
-                    </a>
-                </li>
+                <li><a href="collapsible.html">Javascript</a></li>
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
                 <ul id="dropdown1" class="dropdown-content">
                     <li><a href="#!"><i class="material-icons">view_module</i>Bag </a></li>
                     <li><a href="#!"><i class="material-icons">cloud</i>Logout </a></li>
@@ -42,8 +32,7 @@
                 <li><a href="sass.html">Sass</a></li>
                 <li><a href="badges.html">Components</a></li>
                 <li><a href="collapsible.html">Javascript</a></li>
-                <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Dropdown
-                    <i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
                 <ul id="dropdown2" class="dropdown-content">
                     <li><a href="#!"><i class="material-icons">view_module</i>Bag </a></li>
                     <li><a href="#!"><i class="material-icons">cloud</i>Logout </a></li>
@@ -82,7 +71,7 @@
     <!-- images.left -->
     <div class="row">
         <div class="col s12 m6 l7">
-            <div class="card-panel white">
+            <div class="products card-panel white">
                 <span class="black-text">Check out our shit products! </span>
                 <div class="order carousel carousel-slider center" data-indicators="true">
                     <div class="select-order carousel-fixed-item center">
@@ -110,7 +99,7 @@
 
         <!-- form.right -->
         <div class="col s12 m6 l5">
-            <div class="card-panel white">
+            <div class="products card-panel white">
 
                 <div class="row">
                     <div>
@@ -173,7 +162,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-    <script src="../static/js/scripts.js" th:src="@{/js/scripts.js}"></script>
+    <script src="../static/js/scripts.js"></script>
 </body>
 
 </html>
