@@ -44,7 +44,8 @@
     <div class="wrapper grey lighten-4">
         <div class="login-page">
             <div class="login-form">
-                <!--<span>Dito mo lagay ung error message</span>-->
+                <!--Dito mo lagay ung th tags mo-->
+                <p class="notif">Invalid Credentials</p>
                 <form class="register-form">
                     <input type="text" placeholder="name" />
                     <input type="password" placeholder="password" />
@@ -53,7 +54,7 @@
                     <p class="message">Already registered? <a href="#">Sign In</a></p>
                 </form>
                 <form action="/login" method="post" class="submit-form">
-                    <div class='row' th:if="${param.error}">
+                    <!--<div class='row' th:if="${param.error}">
                         <div class='col s12'>
                             <div class='card-panel red darken-2'>
                                 <span class="white-text">Invalid Username and Password</span>
@@ -66,7 +67,7 @@
                                 <span class="white-text">Logged out successfully.</span>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <input type="text" placeholder="username" name="username" />
                     <input type="password" placeholder="password" name="password" />
                     <button type="submit">login</button>
