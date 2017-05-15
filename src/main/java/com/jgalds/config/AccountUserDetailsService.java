@@ -2,6 +2,7 @@ package com.jgalds.config;
 
 import com.jgalds.model.Account;
 import com.jgalds.repository.AccountRepository;
+import com.jgalds.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
@@ -17,16 +18,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class AccountUserDetailsService implements UserDetailsService {
 
-    private final AccountRepository accountRepository;
+    private final AccountService accountService;
 
     @Autowired
-    public AccountUserDetailsService(AccountRepository accountRepository) {
-        this.accountRepository = accountRepository;
+    public AccountUserDetailsService(AccountService accountService) {
+        this.accountService = accountService;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Account account = accountRepository.findByUsername(username);
+        Account account = accountService.findByUsername(username);
         return new User(account.getUsername(), account.getPassword(),
                 account.isActive(), account.isActive(), account.isActive(), account.isActive(),
                 AuthorityUtils.createAuthorityList(account.getRole()));

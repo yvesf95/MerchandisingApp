@@ -1,6 +1,7 @@
 package com.jgalds.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import javax.persistence.*;
@@ -10,20 +11,22 @@ import javax.persistence.*;
  */
 
 @Data
+@NoArgsConstructor
 @Entity
 public class Picture {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @NonNull
     private String picName;
-
-    @NonNull
     private String picPath;
 
-    @NonNull
     @ManyToOne
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
+
+    public Picture(String picName, String picPath, Product product) {
+        this.picName = picName;
+        this.picPath = picPath;
+        this.product = product;
+    }
 }

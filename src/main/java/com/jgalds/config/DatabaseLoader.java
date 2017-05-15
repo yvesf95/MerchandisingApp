@@ -1,13 +1,14 @@
 package com.jgalds.config;
 
 import com.jgalds.model.*;
-import com.jgalds.repository.AccountRepository;
-import com.jgalds.repository.CategoryRepository;
-import com.jgalds.repository.PictureRepository;
-import com.jgalds.repository.ProductRepository;
+import com.jgalds.service.AccountService;
+import com.jgalds.service.CategoryService;
+import com.jgalds.service.PictureService;
+import com.jgalds.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by Admin on 5/6/2017.
@@ -16,45 +17,47 @@ import org.springframework.stereotype.Component;
 @Component
 public class DatabaseLoader implements CommandLineRunner {
 
-    private final AccountRepository accountRepository;
+    private final AccountService accountService;
 
-    private final CategoryRepository categoryRepository;
+    private final CategoryService categoryService;
 
-    private final PictureRepository pictureRepository;
+    private final PictureService pictureService;
 
-    private final ProductRepository productRepository;
+    private final ProductService productService;
 
     @Autowired
-    public DatabaseLoader(AccountRepository accountRepository,
-                          CategoryRepository categoryRepository,
-                          PictureRepository pictureRepository,
-                          ProductRepository productRepository) {
-        this.accountRepository = accountRepository;
-        this.categoryRepository = categoryRepository;
-        this.pictureRepository = pictureRepository;
-        this.productRepository = productRepository;
+    public DatabaseLoader(AccountService accountService,
+                          CategoryService categoryService,
+                          PictureService pictureService,
+                          ProductService productService) {
+        this.accountService = accountService;
+        this.categoryService = categoryService;
+        this.pictureService = pictureService;
+        this.productService = productService;
     }
 
+
     @Override
+    @Transactional
     public void run(String... strings) throws Exception {
-        accountRepository.save(new Account("admin", "admin", "spring",
+        accountService.save(new Account("admin", "admin", "spring",
                 "helloworld@gmail.com", true, "ROLE_ADMIN"));
-        accountRepository.save(new Account("member", "member", "youtube",
+        accountService.save(new Account("member", "member", "youtube",
                 "helloworld@gmail.com", true, "ROLE_MEMBER"));
-        accountRepository.save(new Account("student", "student", "java",
+        accountService.save(new Account("student", "student", "java",
                 "helloworld@gmail.com", true, "ROLE_STUDENT"));
 
         for (CategoryEnum c : CategoryEnum.values()) {
 //            ex: new Category(name: Bags)
-            Category category = categoryRepository.save(new Category(c.getCategoryName()));
+            Category category = categoryService.save(new Category(c.getCategoryName()));
 
 //            ex: new Product(productName: Sample Bags, productDesc: Hello World,
 //                   category: Bags, color: white, size: 10, price: 1000.00, stock: 10)
-            Product product = productRepository.save(new Product("Sample " + c.getCategoryName(),
+            Product product = productService.save(new Product("Sample " + c.getCategoryName(),
                     "Hello World", category, "white", 10, 1000.00, 10));
 
 //            ex: new Picture(picName: bags, picPath: /images/bags-sample.jpg, product1)
-            Picture picture = pictureRepository.save(new Picture(c.getCategoryName(),
+            Picture picture = pictureService.save(new Picture(c.getCategoryName(),
                     "/images/" + c.getCategoryName().toLowerCase() + "-sample.jpg", product));
 
         }

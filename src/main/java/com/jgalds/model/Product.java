@@ -15,26 +15,20 @@ import java.util.List;
  */
 
 @Data
+@NoArgsConstructor
 @Entity
 public class Product {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     private String productName;
-
     private String productDesc;
-
     @ManyToOne
     @JoinColumn(name = "CATEGORY_ID")
     private Category category;
-
     private String color;
-
     private double size;
-
     private double price;
-
     private int stock;
 
     @OneToMany(mappedBy = "product")

@@ -43,13 +43,13 @@ public class RoleBasedSuccessHandler extends SimpleUrlAuthenticationSuccessHandl
         for (GrantedAuthority authority : authorities) {
             switch (authority.getAuthority()){
                 case "ROLE_ADMIN":
-                    url = "/admin";
+                    url = "/admin/";
                     break;
                 case "ROLE_MEMBER":
-                    url = "/member";
+                    url = "/member/";
                     break;
                 case "ROLE_STUDENT":
-                    url = "/student";
+                    url = "/student/";
                     break;
                 default:
                     url = "/";

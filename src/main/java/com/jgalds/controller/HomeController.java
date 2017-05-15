@@ -1,11 +1,15 @@
 package com.jgalds.controller;
 
-import com.jgalds.model.Account;
-import org.springframework.security.core.context.SecurityContextHolder;
+import com.jgalds.service.ProductService;
+import com.jgalds.model.Product;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 /**
  * Created by Admin on 5/4/2017.
@@ -13,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    private ProductService productService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(){
@@ -25,7 +32,11 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/products", method = RequestMethod.GET)
-    public String getProducts(){
+    public String getProducts(Model model){
+//        , @RequestParam(value = "page", defaultValue = "0") int pageNumber
+//        Page<Product> productPage = productRepository.findAll(new PageRequest(pageNumber,10));
+//        model.addAttribute("products", productPage);
+        model.addAttribute("products", productService.findAllProducts());
         return "products";
     }
 
