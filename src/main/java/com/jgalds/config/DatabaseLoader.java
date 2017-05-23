@@ -10,6 +10,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by Admin on 5/6/2017.
  */
@@ -60,6 +62,12 @@ public class DatabaseLoader implements CommandLineRunner {
             Picture picture = pictureService.save(new Picture(c.getCategoryName(),
                     "/images/" + c.getCategoryName().toLowerCase() + "-sample.jpg", product));
 
+        }
+
+        for (Product p : productService.findAllProducts()) {
+            System.out.println(p.toString());
+//            List<Picture> pictures = pictureService.findAllByProduct_Id(p.getId());
+//            System.out.println(pictures.toString());
         }
     }
 }

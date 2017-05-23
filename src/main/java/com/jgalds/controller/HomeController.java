@@ -1,5 +1,7 @@
 package com.jgalds.controller;
 
+import com.jgalds.model.Picture;
+import com.jgalds.service.PictureService;
 import com.jgalds.service.ProductService;
 import com.jgalds.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,8 @@ public class HomeController {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private PictureService pictureService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(){
@@ -36,7 +40,12 @@ public class HomeController {
 //        , @RequestParam(value = "page", defaultValue = "0") int pageNumber
 //        Page<Product> productPage = productRepository.findAll(new PageRequest(pageNumber,10));
 //        model.addAttribute("products", productPage);
-        model.addAttribute("products", productService.findAllProducts());
+        List<Product> products = productService.findAllProducts();
+        for (Product p : products) {
+            List<Picture> pictures = pictureService.findAllByProduct_Id(p.getId());
+            p.getPictures().addAll(pictures);
+        }
+        model.addAttribute("products", products);
         return "products";
     }
 

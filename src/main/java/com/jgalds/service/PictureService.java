@@ -1,6 +1,7 @@
 package com.jgalds.service;
 
 import com.jgalds.model.Picture;
+import com.jgalds.model.Product;
 
 import java.util.List;
 
@@ -9,5 +10,6 @@ import java.util.List;
  */
 public interface PictureService {
     List<Picture> findAll();
+    List<Picture> findAllByProduct_Id(Long id);
     Picture save(Picture picture);
 }
